@@ -9,11 +9,11 @@ will be no updates, and there is no build for it on Docker hub.
 To build:
 
 ```
-docker build -t solr4 .
+docker build -t dr-websolr .
 ```
 
 To run:
 
 ```
-docker run -P solr4
+docker run -p <SOLR_PORT>:8983 dr-websolr
 ```
