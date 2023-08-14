@@ -1,19 +1,26 @@
 
-If you want to run Solr under Docker, you should use the latest version.
-See https://hub.docker.com/_/solr/
+Docker image for DriverReach's Websolr Integration
 
-If for some reason you have to run a legacy Solr 4, you could use the example
-here as a base for building your own image. It is not supported though, there
-will be no updates, and there is no build for it on Docker hub.
+For use in development/testing only.
 
-To build:
+To use, first install Docker on your machine: https://docs.docker.com/desktop/install/mac-install/
 
-```
-docker build -t solr4 .
-```
-
-To run:
+To build, clone this repo, navigate to the working directory the in your terminal, run:
 
 ```
-docker run -P solr4
+docker build -t dr-websolr .
+```
+
+Then, to start up a new container using this image, run the following, replacing `SOLR_PORT` with the port you wish to use:
+
+```
+docker run -p <SOLR_PORT>:8983 dr-websolr
+```
+
+### Note:
+You could run development and testing Solr instances by running the above command twice, substituting different ports for development and testing respectively:
+```
+docker run -p 8981:8983 dr-websolr-test
+
+docker run -p 8982:8983 dr-websolr-dev
 ```
