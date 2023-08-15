@@ -16,4 +16,4 @@ fi
 
 echo "Starting Solr $SOLR_VERSION"
 
-exec solr -f "$@"
+exec solr -f -s "/home/solr" -V "$@"
