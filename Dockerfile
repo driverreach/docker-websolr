@@ -5,7 +5,8 @@ RUN apt-get update && \
   apt-get -y install lsof procps wget gpg && \
   rm -rf /var/lib/apt/lists/*
 
-ENV SOLR_USER="solr" \
+ENV SOLR_PORT=8981 \
+    SOLR_USER="solr" \
     SOLR_GROUP="solr" \
     SOLR_VERSION="4.10.2" \
     SOLR_URL="${SOLR_DOWNLOAD_SERVER:-https://archive.apache.org/dist/lucene/solr}/4.10.2/solr-4.10.2.tgz" \
@@ -37,7 +38,7 @@ RUN chown -R $SOLR_USER:$SOLR_GROUP /opt/docker-solr
 COPY custom/solr /home/solr
 RUN chown -R $SOLR_USER:$SOLR_GROUP /home/solr
 
-EXPOSE 8983
+EXPOSE 8981
 WORKDIR /opt/solr
 USER $SOLR_USER
 
