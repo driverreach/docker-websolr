@@ -20,7 +20,7 @@ docker run -p <LOCALHOST_PORT>:8981 websolr-test
 ### Note:
 You could run development and testing Solr instances by running the above command twice, substituting different ports for development and testing respectively:
 ```
-docker run -p 8981:8981 websolr-test
+docker run -d -p 8982:8981 --name solr-dev websolr-test
 
-docker run -p 8982:8981 websolr-dev
+docker run -d -p 8981:8981 --name solr-test websolr-test
 ```
