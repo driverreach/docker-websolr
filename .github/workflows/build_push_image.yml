@@ -22,7 +22,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: driverreachdocker/websolr-test
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}
       -
         name: Build and Push to Dockerhub
         uses: docker/build-push-action@v4
