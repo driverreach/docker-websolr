@@ -17,6 +17,12 @@ Then, to start up a new container using this image, run the following, replacing
 docker run -p <LOCALHOST_PORT>:8981 websolr
 ```
 
+On initial setup, you will need to add all applicable models (such as `Applicants::Application`) to the Solr index.
+To do so, run the following on the command line:
+```
+rails sunspot:reindex
+```
+
 ### Note:
 You could run development and testing Solr instances by running the above command twice, substituting different ports for development and testing respectively:
 ```
